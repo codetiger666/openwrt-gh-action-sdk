@@ -5,5 +5,6 @@ FROM $CONTAINER:$ARCH
 LABEL "com.github.actions.name"="OpenWrt SDK"
 
 ADD entrypoint.sh /
+COPY --chmod=755 entrypoint.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]

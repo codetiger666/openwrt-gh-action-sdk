@@ -63,6 +63,12 @@ group "feeds update -a"
 ./scripts/feeds update -a
 endgroup
 
+group "update golang"
+rm -rf feeds/packages/lang/golang/golang
+git clone https://github.com/openwrt/packages --dept=1 openwrt-packages
+cp -ra openwrt-packages/lang/golang/golang feeds/packages/lang/golang/golang
+endgroup
+
 group "make defconfig"
 make defconfig
 endgroup
