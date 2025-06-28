@@ -40,6 +40,8 @@ endef
 
 define Host/Install
 	mkdir -p $(STAGING_DIR)/host/bin && cp -ra $(HOME)/.cargo/bin/* $(STAGING_DIR)/host/bin/
+	echo "需要安装的目标架构: $(rustc --print target-list | grep $(ARCH) | grep linux | grep $(ABI) | grep unknown | head -n 1)"
+	rustup install $(rustc --print target-list | grep $(ARCH) | grep linux | grep $(ABI) | grep unknown | head -n 1)
 endef
 
 $(eval $(call HostBuild))
