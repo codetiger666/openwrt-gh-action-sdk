@@ -71,9 +71,6 @@ endgroup
 
 group "update rust"
 rm -rf feeds/packages/lang/rust/Makefile
-ls -l /
-echo "4545454"
-ls -l /packages
 cp -ra /packages/rust/Makefile feeds/packages/lang/rust/Makefile
 endgroup
 

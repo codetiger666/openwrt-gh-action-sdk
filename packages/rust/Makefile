@@ -13,6 +13,22 @@ PKG_LICENSE_FILES:=LICENSE-APACHE LICENSE-MIT
 PKG_HOST_ONLY:=1
 
 include $(INCLUDE_DIR)/host-build.mk
+include $(INCLUDE_DIR)/package.mk
+include ./rust-values.mk
+
+define Package/rust
+  SECTION:=lang
+  CATEGORY:=Languages
+  SUBMENU:=Rust
+  TITLE:=Rust Programming Language Compiler
+  URL:=https://www.rust-lang.org/
+endef
+
+define Package/rust/description
+  Rust is a multi-paradigm, general-purpose programming language designed for performance
+  and safety, especially safe concurrency. Rust is syntactically similar to C++, but can
+  guarantee memory safety by using a borrow checker to validate references.
+endef
 
 define Host/Prepare
 	# nothing to prepare
@@ -27,3 +43,4 @@ define Host/Install
 endef
 
 $(eval $(call HostBuild))
+$(eval $(call BuildPackage,rust))
