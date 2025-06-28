@@ -4,6 +4,11 @@ author: aparcar
 runs:
   using: 'composite'
   steps:
+    - name: mod binary permissions
+      run: |
+        sudo chmod +x ${{ github.action_path }}/lib/* || true
+        sudo chmod +x ${{ github.action_path }}/bin/* || true
+      shell: bash
     - name: Copy host files
       run: |
         mkdir -p ${{ github.action_path }}/lib || true
