@@ -9,7 +9,7 @@ runs:
         mkdir -p ${{ github.action_path }}/lib || true
         sudo cp /usr/lib/llvm-17/lib/libclang*so* ${{ github.action_path }}/lib || true
         sudo cp /usr/lib/llvm-17/lib/libLLVM*so* ${{ github.action_path }}/lib || true
-        sudo cp /usr/lib/x86_64-linux-gnu/libffi.so ${{ github.action_path }}/lib
+        sudo cp /usr/lib/x86_64-linux-gnu/libffi.so* ${{ github.action_path }}/lib
         sudo ls -lh ${{ github.action_path }}/lib
       shell: bash
     - name: mod binary permissions
