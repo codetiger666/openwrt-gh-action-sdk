@@ -8,7 +8,6 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 ADD include/ /usr/include/
 ADD lib/ /usr/lib/
-ADD bin/ /usr/bin/
 ADD packages /
 
 ADD entrypoint.sh /
