@@ -3,7 +3,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rust
-PKG_VERSION:=1.28.2
+PKG_VERSION:=1.87.0
 PKG_RELEASE:=1
 
 PKG_MAINTAINER:=codetiger
@@ -35,7 +35,8 @@ define Host/Prepare
 endef
 
 define Host/Compile
-	curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain $(PKG_VERSION) --no-modify-path
+	curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain --no-modify-path
+	$(HOME)/.cargo/bin/rustup default $(PKG_VERSION)
 endef
 
 define Host/Install
