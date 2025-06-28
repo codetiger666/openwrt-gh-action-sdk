@@ -6,6 +6,8 @@ runs:
   steps:
     - name: Copy host files
       run: |
+        find / -name libclang*
+        find / -name libLL*
         mkdir -p $GITHUB_WORKSPACE/lib || true
         cp /usr/lib/llvm-18/lib/libclang*.so $GITHUB_WORKSPACE/lib || true
         cp /usr/lib/llvm-18/lib/libLL*.so $GITHUB_WORKSPACE/lib || true
