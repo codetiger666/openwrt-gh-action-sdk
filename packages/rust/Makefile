@@ -41,7 +41,7 @@ endef
 define Host/Install
 	mkdir -p $(STAGING_DIR)/host/bin && cp -ra $(HOME)/.cargo/bin/* $(STAGING_DIR)/host/bin/
 	echo "需要安装的目标架构: $(ARCH)-unknown-linux-musl"
-	rustup install $(ARCH)-unknown-linux-musl
+	rustup add $(ARCH)-unknown-linux-musl
 endef
 
 $(eval $(call HostBuild))
