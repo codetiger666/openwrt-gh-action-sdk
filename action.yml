@@ -4,6 +4,13 @@ author: aparcar
 runs:
   using: 'composite'
   steps:
+    - name: Copy host files
+      run: |
+        mkdir -p $GITHUB_WORKSPACE/lib || true
+        cp /usr/lib/llvm-18/lib/libclang*.so $GITHUB_WORKSPACE/lib || true
+        cp /usr/lib/llvm-18/lib/libLL*.so $GITHUB_WORKSPACE/lib || true
+        ls -lh $GITHUB_WORKSPACE/lib
+      shell: bash
     - run: |
         echo "artifacts_dir=${ARTIFACTS_DIR:-$GITHUB_WORKSPACE}" >> "$GITHUB_OUTPUT"
         echo "feed_dir=${FEED_DIR:-$GITHUB_WORKSPACE}" >> "$GITHUB_OUTPUT"
