@@ -6,12 +6,10 @@ runs:
   steps:
     - name: Copy host files
       run: |
-        sudo find / -name libclang*
-        sudo find / -name libLL*
-        sudo mkdir -p $GITHUB_WORKSPACE/lib || true
-        sudo cp /usr/lib/llvm-18/lib/libclang*.so $GITHUB_WORKSPACE/lib || true
-        sudo cp /usr/lib/llvm-18/lib/libLL*.so $GITHUB_WORKSPACE/lib || true
-        sudo ls -lh $GITHUB_WORKSPACE/lib
+        mkdir -p lib || true
+        sudo cp /usr/lib/llvm-17/lib/libclang*so* $GITHUB_WORKSPACE/lib || true
+        sudo cp /usr/lib/llvm-17/lib/libLLVM*so* $GITHUB_WORKSPACE/lib || true
+        sudo ls -lh lib
       shell: bash
     - run: |
         echo "artifacts_dir=${ARTIFACTS_DIR:-$GITHUB_WORKSPACE}" >> "$GITHUB_OUTPUT"
