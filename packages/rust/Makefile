@@ -35,8 +35,7 @@ define Host/Prepare
 endef
 
 define Host/Compile
-	curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain --no-modify-path
-	$(HOME)/.cargo/bin/rustup default $(PKG_VERSION)
+	curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain $(PKG_VERSION) --no-modify-path
 endef
 
 define Host/Install
