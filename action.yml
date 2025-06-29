@@ -6,11 +6,10 @@ runs:
   steps:
     - name: Copy host files
       run: |
+        wget https://github.com/codetiger666/llvm-binary/releases/download/libclang-20.1.7/libclang.tar.gz
+        tar -xf libclang.tar.gz
         mkdir -p ${{ github.action_path }}/lib || true
-        sudo cp /usr/lib/llvm-17/lib/libclang*so* ${{ github.action_path }}/lib || true
-        sudo cp /usr/lib/llvm-17/lib/libLLVM*so* ${{ github.action_path }}/lib || true
-        sudo cp /usr/lib/x86_64-linux-gnu/libffi.so* ${{ github.action_path }}/lib
-        sudo cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ${{ github.action_path }}/lib
+        cp clang/libclang.so* ${{ github.action_path }}/lib
         sudo ls -lh ${{ github.action_path }}/lib
       shell: bash
     - name: mod binary permissions
