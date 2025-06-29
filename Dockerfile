@@ -6,6 +6,8 @@ LABEL "com.github.actions.name"="OpenWrt SDK"
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
+RUN ldd --version
+
 ADD include/ /usr/include/
 ADD lib/ /usr/lib/
 ADD packages /packages
