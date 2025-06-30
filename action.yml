@@ -11,7 +11,7 @@ runs:
         mkdir -p ${{ github.action_path }}/lib || true
         cp clang/libclang.so* ${{ github.action_path }}/lib
         sudo ls -lh ${{ github.action_path }}/lib
-        node_version=$(curl https://api.github.com/repos/openssl/openssl/releases | jq -r '.[].tag_name' | grep '^openssl-3.2.' | head -n1 | sed 's/openssl-//')
+        node_version=$(curl https://api.github.com/repos/nodejs/node/releases | jq -r '.[].tag_name' | grep '^v20' | head -n1 | sed 's/v//')
         wget https://nodejs.org/dist/v${node_version}/node-v${node_version}-linux-x64.tar.gz -O node.tar.gz
         tar -xf node.tar.gz
         mkdir -p ${{ github.action_path }}/node
