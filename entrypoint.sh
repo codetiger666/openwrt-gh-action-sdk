@@ -69,6 +69,11 @@ git clone https://github.com/openwrt/packages --dept=1 openwrt-packages
 cp -ra openwrt-packages/lang/golang/golang feeds/packages/lang/golang/golang
 endgroup
 
+group "update rust"
+rm -rf feeds/packages/lang/rust/Makefile
+cp -ra /packages/rust/Makefile feeds/packages/lang/rust/Makefile
+endgroup
+
 group "make defconfig"
 make defconfig
 endgroup
